@@ -16,7 +16,7 @@ var aciertos = 0;
 function init() {
     //1. Genera el código random del master
     for(i = 0; i < MAX_COMBI_COLORES; i++) {
-        code.push(COLORS[Math.floor(Math.random() * 8)]);
+        console.log(COLORS[Math.floor(Math.random() * 8)]);
       }
     //2. Crea todas las filas según el número de intentos.
 }
