@@ -14,15 +14,20 @@ var intento = 0;
 var aciertos = 0;
 
 function init() {
+    let combo = [];
     //1. Genera el código random del master
-    for(i = 0; i < MAX_COMBI_COLORES; i++) {
+    for(let i = 0; i < MAX_COMBI_COLORES; i++) {
         let code = (COLORS[Math.floor(Math.random() * COLORS.length)]);
-        master[i] = code
+        combo[i] = code;
       }
-      console.log(master)
+      console.log(combo);
     //2. Crea todas las filas según el número de intentos.
+    for(let j = 0; j < MAX_INTENTOS; j ++){
+        const filas = document.getElementById('Result');
+        filas.innerHTML += ROW_RESULT;
+    }
+    
 }
-
 
 
 /* Llamaremos a esta función desde el botón HTML de la página para comprobar la propuesta de combinación que nos ha
@@ -52,7 +57,7 @@ const ROW_RESULT = `<div class="rowResult w100 flex wrap">
        <div class="w25">
            <div class="celUserCombi flex"></div>
        </div>
-    </div>alis/Mastermind_CODIGO
+    </div>
     <div class="rowCercleResult w25 flex wrap center">
        <div class="w40 h40">
             <div class="cercleResult flex"></div>
@@ -66,5 +71,5 @@ const ROW_RESULT = `<div class="rowResult w100 flex wrap">
        <div class="w40 h40">
            <div class="cercleResult flex"></div>
        </div>
-    <div>
+    </div>
 </div>`;
