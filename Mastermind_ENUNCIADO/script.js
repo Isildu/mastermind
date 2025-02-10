@@ -34,11 +34,28 @@ function init() {
 introducido el usuario.
 Informamos al usuario del resultado y del número de intentos que lleva*/
 function Comprobar() {
+    contador = 0;
+    document.getElementById("combiText").value = "";
+    intento ++
+    const filas2 = document.getElementsByClassName('w25')
+    const filas = document.getElementsByClassName('celUserCombi flex');
+    for(let j = 0; j < MAX_COMBI_COLORES; j++){
+        filas2[intento] = filas[j].style.backgroundColor = combo2[j];
+    }
 }
 
 /** Procedimiento que se ejecuta cada vez que el usuario selecciona un color, hasta el número máximo de colores permitidos en la combinación. */
+let contador = 0;
+let combo2 = [];
 function añadeColor(color) {
-   
+    console.log("color: ",color, combo2)
+    let inFilas = document.getElementById("combiText");
+    if(contador < MAX_COMBI_COLORES){
+        inFilas.value += " " + color;
+        combo2[contador] = color;
+        contador ++;
+    }else alert("maximo de numeros añadidos")
+    
 }
 
 
