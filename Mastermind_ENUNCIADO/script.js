@@ -36,14 +36,17 @@ Informamos al usuario del resultado y del número de intentos que lleva*/
 function Comprobar() {
     contador = 0;
     document.getElementById("combiText").value = "";
+
     arrayFilas=document.getElementsByClassName("rowResult");
-    let rowIntento = arrayFilas[intento];
-    console.log("query: ",arrayFilas)
-    const filas = document.getElementsByClassName('celUserCombi flex');
-    for(let j = 0; j < MAX_COMBI_COLORES; j++){
-        filas[j].style.backgroundColor = combo2[j];
+    for(let numFila=0;numFila<arrayFilas.length; numFila ++){
+        const celes = arrayFilas[numFila].getElementsByClassName('celUserCombi flex');
+        for(let j = 0; j < MAX_COMBI_COLORES; j++){
+            celes[j].style.backgroundColor = combo2[j];
+        }
     }
-    intento ++;
+    //const filas = document.getElementsByClassName('celUserCombi flex');
+  
+    //intento ++
 }
 
 /** Procedimiento que se ejecuta cada vez que el usuario selecciona un color, hasta el número máximo de colores permitidos en la combinación. */
