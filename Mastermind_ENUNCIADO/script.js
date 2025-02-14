@@ -12,15 +12,15 @@ const master = [];
 const userCombi = [];
 var intento = 0;
 var aciertos = 0;
+contador = 0;
 
 function init() {
-    let combo = [];
     //1. Genera el código random del master
     for(let i = 0; i < MAX_COMBI_COLORES; i++) {
         let code = (COLORS[Math.floor(Math.random() * COLORS.length)]);
-        combo[i] = code;
+        master[i] = code;
       }
-      console.log(combo);
+      console.log(master);
     //2. Crea todas las filas según el número de intentos.
     for(let j = 0; j < MAX_INTENTOS; j ++){
         const filas = document.getElementById('Result');
@@ -36,16 +36,17 @@ Informamos al usuario del resultado y del número de intentos que lleva*/
 function Comprobar() {
     contador = 0;
     document.getElementById("combiText").value = "";
-    intento ++
-    const filas2 = document.getElementsByClassName('w25')
+    arrayFilas=document.getElementsByClassName("rowResult");
+    let rowIntento = arrayFilas[intento];
+    console.log("query: ",arrayFilas)
     const filas = document.getElementsByClassName('celUserCombi flex');
     for(let j = 0; j < MAX_COMBI_COLORES; j++){
-        filas2[intento] = filas[j].style.backgroundColor = combo2[j];
+        filas[j].style.backgroundColor = combo2[j];
     }
+    intento ++;
 }
 
 /** Procedimiento que se ejecuta cada vez que el usuario selecciona un color, hasta el número máximo de colores permitidos en la combinación. */
-let contador = 0;
 let combo2 = [];
 function añadeColor(color) {
     console.log("color: ",color, combo2)
